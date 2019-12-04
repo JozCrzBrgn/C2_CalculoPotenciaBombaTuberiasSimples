@@ -81,7 +81,6 @@ def PotenciaRequerida(Q,L,d,ks,km,p,u,z2,n):
     f = CW.Colebrook_White(Re,ks,d)
     #Cálculo de las pérdidas de energía por fricción
     hf = Perd_friccion(f,L,V,d,g)
-    print(hf)
     #Cálculo de la altura total que debe ser producida por la bomba
     H = H_tot(z2,hf,Shm)
 
