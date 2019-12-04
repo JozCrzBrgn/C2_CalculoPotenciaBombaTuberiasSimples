@@ -11,7 +11,7 @@ Estructura de la función:
     PotenciaRequerida(Q,L,d,ks,km,p,u,z2,n)
 
 Inputs:
-    Q  -- Caudal que fluye por la tubería (m^3/s).
+    Q  -- Caudal que fluye por la tubería (Lps).
     L  -- Longitud de la tubería (mts). 
     d  -- Diámetro de la tubería (mts).
     ks -- Rugosidad Absoluta del material (mts).
@@ -22,7 +22,7 @@ Inputs:
     n  -- Eficiencia de la bomba.
 
 Output:
-    P = Potencia necesaria para mover un caudal determinado a través de una tubería (watts).
+    P = Potencia necesaria para mover un caudal determinado a través de una tubería (Kwatts).
 
 Programado por:
     Ing. Josue Emmanuel Cruz Barragan
@@ -81,8 +81,9 @@ def PotenciaRequerida(Q,L,d,ks,km,p,u,z2,n):
     f = CW.Colebrook_White(Re,ks,d)
     #Cálculo de las pérdidas de energía por fricción
     hf = Perd_friccion(f,L,V,d,g)
+    print(hf)
     #Cálculo de la altura total que debe ser producida por la bomba
     H = H_tot(z2,hf,Shm)
 
-    return p*Q*g*H/n
+    return p*Q*g*H/(n*1000)
             
